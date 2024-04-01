@@ -46,7 +46,13 @@ def check_auth_multi(func):
     return wrapper__
 
 
+def check_auth_and_post(func):
+    decorated_func = check_post(check_auth(func))
 
+    def wrapper(*args, **kwargs):
+        return decorated_func(*args, **kwargs)
+
+    return wrapper
 
 
 class CalculatorApi:

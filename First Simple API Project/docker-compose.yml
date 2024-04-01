@@ -1,0 +1,12 @@
+# latest version of docker compose
+version: '3'
+
+# building the 'web' (our Python API) services from the directory of /web (where the Dockerfile is located).
+  # A Dockerfile must be present in the directory for the docker-compose correctly build this module.
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "5000:5000"
+    # In summary, this line ensures that the services running inside the container are accessible from the host machine on port 5000.
